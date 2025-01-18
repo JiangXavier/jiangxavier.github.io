@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LogTrick | JiangXavier</title><meta name="author" content="JiangXavier"><meta name="copyright" content="JiangXavier"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="LogTrick算法是一种通过利用对数运算性质来优化常见数字运算（如AND、OR、GCD、LCM等）的方法。它通过简化运算复杂度，提升运算效率，尤其适用于处理包含多个元素的数字数组。 LogTrick算法讲解求解问题求解数组中位运算子数组的相关问题，一般求解AND,OR,GCD,LCM等问题。 O(nlogU)，U&#x3D;max(nums),(nums中最大的数) 一些特性AND的数越多，结果越小；OR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LogTrick">
+<meta property="og:url" content="http://example.com/2025/01/17/logtrick/index.html">
+<meta property="og:site_name" content="JiangXavier">
+<meta property="og:description" content="LogTrick算法是一种通过利用对数运算性质来优化常见数字运算（如AND、OR、GCD、LCM等）的方法。它通过简化运算复杂度，提升运算效率，尤其适用于处理包含多个元素的数字数组。 LogTrick算法讲解求解问题求解数组中位运算子数组的相关问题，一般求解AND,OR,GCD,LCM等问题。 O(nlogU)，U&#x3D;max(nums),(nums中最大的数) 一些特性AND的数越多，结果越小；OR">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/117.png">
+<meta property="article:published_time" content="2025-01-17T06:47:17.000Z">
+<meta property="article:modified_time" content="2025-01-18T03:41:41.268Z">
+<meta property="article:author" content="JiangXavier">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/117.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/01/17/logtrick/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LogTrick',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/images/111.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/117.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">JiangXavier</span></a><a class="nav-page-title" href="/"><span class="site-name">LogTrick</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">LogTrick</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-17T06:47:17.000Z" title="发表于 2025-01-17 14:47:17">2025-01-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-18T03:41:41.268Z" title="更新于 2025-01-18 11:41:41">2025-01-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/leetcode/">leetcode</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/2025/01/17/logtrick/" data-flag-title="LogTrick"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>LogTrick算法是一种通过利用对数运算性质来优化常见数字运算（如AND、OR、GCD、LCM等）的方法。它通过简化运算复杂度，提升运算效率，尤其适用于处理包含多个元素的数字数组。</p>
+<h3 id="LogTrick算法讲解"><a href="#LogTrick算法讲解" class="headerlink" title="LogTrick算法讲解"></a>LogTrick算法讲解</h3><h4 id="求解问题"><a href="#求解问题" class="headerlink" title="求解问题"></a>求解问题</h4><p>求解数组中位运算子数组的相关问题，一般求解AND,OR,GCD,LCM等问题。</p>
+<p><code>O(nlogU)，U=max(nums),(nums中最大的数)</code></p>
+<h4 id="一些特性"><a href="#一些特性" class="headerlink" title="一些特性"></a>一些特性</h4><p>AND的数越多，结果越小；OR的数越多，结果越大。</p>
+<h4 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h4><p>以AND为例，nums数组取[2,3,6,4]：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>() ; i ++)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = i - <span class="number">1</span> ; j &gt;= <span class="number">0</span> ; j ++)&#123;</span><br><span class="line">        <span class="comment">// 得到nums[j:i+1]的子数组</span></span><br><span class="line">        nums[j] &amp;= nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模拟过程如下</span></span><br><span class="line"><span class="comment">//   2             3       6     4  </span></span><br><span class="line"><span class="comment">//  010           011     110   100  (initial)</span></span><br><span class="line"><span class="comment">//  a0                               (i = 0) </span></span><br><span class="line"><span class="comment">//  a0&amp;a1         a1                 (i = 1)</span></span><br><span class="line"><span class="comment">//  a0&amp;a1&amp;a2     a1&amp;a2     a2        (i = 2)</span></span><br><span class="line"><span class="comment">//  a0&amp;a1&amp;a2&amp;a3 a1&amp;a2&amp;a3 a2&amp;a3  a3   (i = 3)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 模拟过程如下</span></span><br><span class="line"><span class="comment">//   2   3   6    4  </span></span><br><span class="line"><span class="comment">//  010 011 110  100  (initial)</span></span><br><span class="line"><span class="comment">//  010               (i = 0) </span></span><br><span class="line"><span class="comment">//  010 011           (i = 1)</span></span><br><span class="line"><span class="comment">//  010 010 110       (i = 2)</span></span><br><span class="line"><span class="comment">//  000 000 100  100  (i = 3)</span></span><br><span class="line"><span class="comment">// 如果再加一个数,       5(101)</span></span><br><span class="line"><span class="comment">//  000 000 100  100   101  (i = 4) </span></span><br></pre></td></tr></table></figure>
+
+<p>将每个数的二进制当作集合来处理，AND操作相当于求交集，次数越多范围越小；</p>
+<p>回归到集合论中，两个集合求交集，越向左（交集次数越多），范围越小，那么只会存在两种情况：</p>
+<ul>
+<li><code>nums[j] &amp; nums[i] != nums[j]</code>，两集合相交，但并不是子集，需要进一步遍历。</li>
+<li><code>nums[j] &amp; nums[i] == nums[j]</code>，不变根据集合论，说明nums[j]是nums[i]的子集，完全覆盖，也就是说再往左计算，范围更小，更小的子集，故不再进行下一步计算。</li>
+</ul>
+<p>回归到代码中，可能会有疑问了，这不是两个for吗，那时间复杂度不就是<code>n^2</code>吗？其实并不是，参考leetcode3097题的数据范围，<code>nums[i]</code>的上界是<code>10^9</code>，所以它是小于<code>2^30</code>的，也就是说数字最大只有29位；而我们知道AND操作每次结果不相同，最多也就是29次，故内层循环最多执行29次，即整个算法时间复杂度为<code>O(nlogU)</code>，在这道题中logU为29。</p>
+<h4 id="leetcode"><a href="#leetcode" class="headerlink" title="leetcode"></a>leetcode</h4><h5 id="3097-或值至少为-K-的最短子数组-II"><a href="#3097-或值至少为-K-的最短子数组-II" class="headerlink" title="3097. 或值至少为 K 的最短子数组 II"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/shortest-subarray-with-or-at-least-k-ii/">3097. 或值至少为 K 的最短子数组 II</a></h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumSubarrayLength</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span> ; i &lt; nums.<span class="built_in">size</span>() ; i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt;= k)&#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i - <span class="number">1</span> ; j &gt;= <span class="number">0</span> ; j --)&#123;</span><br><span class="line">                <span class="keyword">if</span> ((nums[j] | nums[i]) == nums[j])&#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">                nums[j] |= nums[i];</span><br><span class="line">                <span class="keyword">if</span> (nums[j] &gt;= k)&#123;</span><br><span class="line">                    ans = <span class="built_in">min</span>(ans , i - j + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans == INT_MAX ? <span class="number">-1</span> : ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3171-找到按位或最接近-K-的子数组"><a href="#3171-找到按位或最接近-K-的子数组" class="headerlink" title="3171. 找到按位或最接近 K 的子数组"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-subarray-with-bitwise-or-closest-to-k/">3171. 找到按位或最接近 K 的子数组</a></h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumDifference</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span> ; i &lt; nums.<span class="built_in">size</span>() ; i ++)&#123;</span><br><span class="line">            <span class="type">int</span> x = nums[i];</span><br><span class="line">            ans = <span class="built_in">min</span>(ans , <span class="built_in">abs</span>(x - k));</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i - <span class="number">1</span> ; j &gt;= <span class="number">0</span> ; j--)&#123;</span><br><span class="line">                <span class="keyword">if</span> ((nums[j] | x) == nums[j])&#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">                nums[j] |= x;</span><br><span class="line">                ans = <span class="built_in">min</span>(ans , <span class="built_in">abs</span>(nums[j] - k));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2411-按位或最大的最小子数组长度"><a href="#2411-按位或最大的最小子数组长度" class="headerlink" title="2411. 按位或最大的最小子数组长度"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/smallest-subarrays-with-maximum-bitwise-or/">2411. 按位或最大的最小子数组长度</a></h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">smallestSubarrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(nums.size())</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span> ; i &lt; nums.<span class="built_in">size</span>() ; i++)&#123;</span><br><span class="line">            ans[i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i - <span class="number">1</span> ; j &gt;= <span class="number">0</span> ; j--)&#123;</span><br><span class="line">                <span class="keyword">if</span> ((nums[j] | nums[i]) == nums[j])&#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">                <span class="comment">// 如果变一定是变大</span></span><br><span class="line">                nums[j] |= nums[i];</span><br><span class="line">                ans[j] = i - j + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1521-找到最接近目标值的函数值"><a href="#1521-找到最接近目标值的函数值" class="headerlink" title="1521. 找到最接近目标值的函数值"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-a-value-of-a-mysterious-function-closest-to-target/">1521. 找到最接近目标值的函数值</a></h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">closestToTarget</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span> ; i &lt; nums.<span class="built_in">size</span>() ; i ++)&#123;</span><br><span class="line">            <span class="type">int</span> x = nums[i];</span><br><span class="line">            ans = <span class="built_in">min</span>(ans , <span class="built_in">abs</span>(x - k));</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i - <span class="number">1</span> ; j &gt;= <span class="number">0</span> ; j--)&#123;</span><br><span class="line">                <span class="keyword">if</span> ((nums[j] &amp; x) == nums[j])&#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">                nums[j] &amp;= x;</span><br><span class="line">                ans = <span class="built_in">min</span>(ans , <span class="built_in">abs</span>(nums[j] - k));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="898-子数组按位或操作"><a href="#898-子数组按位或操作" class="headerlink" title="898. 子数组按位或操作"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/bitwise-ors-of-subarrays/">898. 子数组按位或操作</a></h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">subarrayBitwiseORs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">int</span> , <span class="type">bool</span>&gt; myMap;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span> ; i &lt; nums.<span class="built_in">size</span>() ; i ++)&#123;</span><br><span class="line">            <span class="type">int</span> x = nums[i];</span><br><span class="line">            myMap.<span class="built_in">insert</span>(&#123;x , <span class="literal">true</span>&#125;);</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i - <span class="number">1</span> ; j &gt;= <span class="number">0</span> ; j--)&#123;</span><br><span class="line">                <span class="keyword">if</span> ((nums[j] | x) == nums[j])&#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">                nums[j] |= x;</span><br><span class="line">                <span class="keyword">if</span> (myMap.<span class="built_in">find</span>(nums[j]) == myMap.<span class="built_in">end</span>())&#123;</span><br><span class="line">                    myMap.<span class="built_in">insert</span>(&#123;nums[j] , <span class="literal">true</span>&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> myMap.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">JiangXavier</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/01/17/logtrick/">http://example.com/2025/01/17/logtrick/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">JiangXavier</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a><a class="post-meta__tags" href="/tags/leetcode/">leetcode</a><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post-share"><div class="social-share" data-image="/images/117.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2024/12/05/ppbuf/" title="Golang PProf"><img class="cover" src="/images/1252.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Golang PProf</div></div><div class="info-2"><div class="info-item-1">引言在开发高性能的 Go 应用时，了解如何利用 PProf 工具进行性能分析是非常重要的。PProf 是 Go 语言自带的性能分析工具，可以帮助开发者检测程序的 CPU 使用情况和内存分配情况。本文将介绍如何使用 PProf 来分析并优化 Go 程序。 </div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">JiangXavier</div><div class="author-info-description">常想一二，不思八九</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JiangXavier"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to my Blog！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#LogTrick%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">LogTrick算法讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E8%A7%A3%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">求解问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text">一些特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A8%E5%AF%BC"><span class="toc-number">1.3.</span> <span class="toc-text">推导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#leetcode"><span class="toc-number">1.4.</span> <span class="toc-text">leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3097-%E6%88%96%E5%80%BC%E8%87%B3%E5%B0%91%E4%B8%BA-K-%E7%9A%84%E6%9C%80%E7%9F%AD%E5%AD%90%E6%95%B0%E7%BB%84-II"><span class="toc-number">1.4.1.</span> <span class="toc-text">3097. 或值至少为 K 的最短子数组 II</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3171-%E6%89%BE%E5%88%B0%E6%8C%89%E4%BD%8D%E6%88%96%E6%9C%80%E6%8E%A5%E8%BF%91-K-%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84"><span class="toc-number">1.4.2.</span> <span class="toc-text">3171. 找到按位或最接近 K 的子数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2411-%E6%8C%89%E4%BD%8D%E6%88%96%E6%9C%80%E5%A4%A7%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%90%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6"><span class="toc-number">1.4.3.</span> <span class="toc-text">2411. 按位或最大的最小子数组长度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1521-%E6%89%BE%E5%88%B0%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9B%AE%E6%A0%87%E5%80%BC%E7%9A%84%E5%87%BD%E6%95%B0%E5%80%BC"><span class="toc-number">1.4.4.</span> <span class="toc-text">1521. 找到最接近目标值的函数值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#898-%E5%AD%90%E6%95%B0%E7%BB%84%E6%8C%89%E4%BD%8D%E6%88%96%E6%93%8D%E4%BD%9C"><span class="toc-number">1.4.5.</span> <span class="toc-text">898. 子数组按位或操作</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/01/17/logtrick/" title="LogTrick"><img src="/images/117.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LogTrick"/></a><div class="content"><a class="title" href="/2025/01/17/logtrick/" title="LogTrick">LogTrick</a><time datetime="2025-01-17T06:47:17.000Z" title="发表于 2025-01-17 14:47:17">2025-01-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/05/ppbuf/" title="Golang PProf"><img src="/images/1252.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Golang PProf"/></a><div class="content"><a class="title" href="/2024/12/05/ppbuf/" title="Golang PProf">Golang PProf</a><time datetime="2024-12-05T09:35:05.000Z" title="发表于 2024-12-05 17:35:05">2024-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/26/hello-world-golang/" title="用 Golang 实现 Hello World"><img src="/images/v2-d29a9ed9425ed9aae1d78cd5e9f3a9f1_1440w.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用 Golang 实现 Hello World"/></a><div class="content"><a class="title" href="/2024/11/26/hello-world-golang/" title="用 Golang 实现 Hello World">用 Golang 实现 Hello World</a><time datetime="2024-11-26T13:35:05.000Z" title="发表于 2024-11-26 21:35:05">2024-11-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By JiangXavier</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: 'npIOjChqCNnJh7xQo0Q81qyf-gzGzoHsz',
+      appKey: 'yfijLtze27CPac0RnSpxSdSn',
+      avatar: 'mp',
+      serverURLs: '',
+      emojiMaps: "",
+      visitor: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
